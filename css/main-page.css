@@ -1,0 +1,125 @@
+#main-box{
+    min-height: 500px;
+    width: 400px;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    background-color: rgb(255, 255, 255);
+    border-radius: 8px;
+    border: 1px solid rgba(0, 0, 0, 0.337);
+    padding: 15px;
+    box-shadow: 0px 0px 20px 1px rgba(0, 0, 0, 0.223) ;
+}
+h1{
+
+    font-weight: bold;
+    font-size: 25px;
+    padding: 10px;
+}
+
+#input-box{
+    height: 80px;
+    width: 100%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+#input{
+    height: 40px;
+    width: 300px;
+    border-radius: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.355);
+    padding-left: 10px;
+    
+}
+
+
+#plus-btn{
+    height: 40px;
+    width: 40px;
+    border-radius: 5px;
+    border: none;
+    font-size: 30px;
+    font-weight: bolder;
+    color: white;
+    background-color: rgb(151, 40, 255);
+    transition: 0.5s ease;
+    cursor: pointer;
+}
+#plus-btn:hover{
+    background-color: rgb(74, 233, 80);   
+    color: rgb(54, 54, 54);
+}
+
+
+
+#ul-list{
+    height: 310px;
+    width: 100%;
+    padding: 10px;
+    overflow: auto;
+    margin-bottom: 3px;
+}
+#clear-ul{
+    height: 70px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+
+.li-added{
+    height: 40px;
+    background-color: rgb(232, 232, 232);
+    padding-left: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 3px;
+    font-weight:400;
+    color: rgb(20, 20, 20);
+    margin-bottom: 5px;
+}
+
+.delete-li{
+    height: 40px;
+    width: 40px;
+    background-color: rgb(255, 87, 87);
+    color: #fff;
+    border-radius: 3px;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.5s ease;
+}
+.delete-li:hover{
+    width: 60px;
+}
+
+/* span{
+    
+} */
+.clear-btn{
+    height: 40px;
+    width: 80px;
+    border-radius: 5px;
+    border: none;
+    font-size: 15px;
+    font-weight:600;
+    color: white;
+    background-color: rgb(151, 40, 255);
+    transition: 0.5s ease;
+    cursor: pointer;
+}
+.clear-btn:hover {
+    background-color: rgb(255, 87, 87);
+    color: rgb(255, 255, 255);
+    width: 90px;
+}
