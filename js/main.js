@@ -28,7 +28,6 @@ input.addEventListener('keydown', (evt)=>{
             }
             Task.addNewTask(taskObj)
             ul.innerHTML = "";
-            carregarTarefas();
             input.value = "";                
             pendingTasks.textContent = Task.taskCount();
             
