@@ -1,4 +1,4 @@
-
+import Task from "../database/db"
 const plusBtn = document.querySelector('#plus-btn')
 const ul = document.querySelector('#ul-list')
 const pendingTasks = document.getElementById('element')
@@ -24,45 +24,18 @@ input.addEventListener('keydown', (evt)=>{
                 id: generateId(),
                 text: input.value
             }
-            Task.addNewTask(taskObj).then(() => {
-                ul.innerHTML = "";
-                carregarTarefas();
-                input.value = "";
-                pendingTasks.textContent = Task.taskCount();
-            });
+            Task.addNewTask(taskObj)
+            ul.innerHTML = "";
+            carregarTarefas();
+            input.value = "";                
+            pendingTasks.textContent = Task.taskCount();
+            
         }
         input.value = ""
         pendingTasks.textContent = Task.taskCount()  
     }
 })
 
-function generateId() {
-    return Date.now().toString(36) + Math.random().toString(36).substr(2);
-}
-
-input.addEventListener('keydown', (evt) => {
-    if (evt.key === "Enter") {
-        const input = document.querySelector('#input')
-        if (input.value === "") {
-            return input.style.border = "2px solid rgba(255, 85, 85, 1)"
-        } else {
-            input.style.border = "2px solid rgba(129, 252, 125, 1)"
-
-            const taskObj = {
-                id: generateId(),
-                text: input.value
-            }
-            Task.addNewTask(taskObj).then(() => {
-                ul.innerHTML = "";
-                carregarTarefas();
-                input.value = "";
-                pendingTasks.textContent = Task.taskCount();
-            });
-        }
-        input.value = ""
-        pendingTasks.textContent = Task.taskCount()
-    }
-})
 
 plusBtn.addEventListener('click', () => {
     const input = document.querySelector('#input')
