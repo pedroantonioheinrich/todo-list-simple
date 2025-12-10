@@ -1,4 +1,6 @@
-import Task from "../database/db"
+import Task from "../database/db.js"
+
+
 const plusBtn = document.querySelector('#plus-btn')
 const ul = document.querySelector('#ul-list')
 const pendingTasks = document.getElementById('element')
@@ -52,24 +54,23 @@ plusBtn.addEventListener('click', () => {
         removeBtn.className = 'delete-li'
     
         removeBtn.addEventListener('click', ()=>{
+            Task.removeTaskById()
             ul.removeChild(li)
             input.value = ""
-            count = count - 1
-            pendingTasks.textContent = count
+            pendingTasks.textContent = Task.taskCount()
         })
     
         li.appendChild(removeBtn)
         ul.appendChild(li)
         input.value = ""
-        count = count + 1
-        pendingTasks.textContent = count
+        pendingTasks.textContent = Task.taskCount()
 
     }
 })
 
 clearAll.addEventListener('click', ()=>{
-    tasks = []
-
-    
+    ul.innerHTML = "";
+    Task.removeAll()
+    pendingTasks.textContent = Task.taskCount()
 })
 
