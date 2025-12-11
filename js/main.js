@@ -5,7 +5,7 @@ const plusBtn = document.querySelector('#plus-btn')
 const ul = document.querySelector('#ul-list')
 const pendingTasks = document.getElementById('element')
 const clearAll = document.querySelector('#clear-ul')
-const input = document.querySelector('#input')
+const inputEnter = document.querySelector('#input')
 
 
 pendingTasks.textContent = Task.taskCount(Task.tasks)
@@ -42,16 +42,16 @@ function generateId(){
 plusBtn.addEventListener('click', () => {
     const input = document.querySelector('#input')
     if(input.value === ""){
-        return input.style.border = "1px solid red"
+        return input.style.border = "2px solid rgba(255, 85, 85, 1)"
     }else{
-        ul.innerHTML = "";
-        input.style.border = "1px solid green"
+        input.style.border = "2px solid rgba(129, 252, 125, 1)"
         pendingTasks.textContent = Task.taskCount()
         const taskObj = {
             id: generateId(),
             text: input.value
         }
         Task.addNewTask(taskObj)
+        Task.setLocalStorage()
         
         const li = document.createElement('li')
         li.textContent = input.value
@@ -62,12 +62,14 @@ plusBtn.addEventListener('click', () => {
         removeBtn.className = 'delete-li'
         
         removeBtn.addEventListener('click', ()=>{
-            Task.removeTaskById()
+            console.log("removendo")
+            Task.removeTaskById(taskObj.id)
             ul.removeChild(li)
             pendingTasks.textContent = Task.taskCount()
         })
         
-        input.value = ""; 
+        input.value = "";
+        // ul.innerHTML = ""; 
         li.appendChild(removeBtn)
         ul.appendChild(li)
 
@@ -77,6 +79,7 @@ plusBtn.addEventListener('click', () => {
         
 
     }
+    input.value = ""; 
     pendingTasks.textContent = Task.taskCount()
 })
 

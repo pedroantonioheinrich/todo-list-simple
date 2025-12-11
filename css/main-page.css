@@ -106,9 +106,10 @@ h1{
     width: 60px;
 }
 
-/* span{
-    
-} */
+#element{
+    color: blueviolet;
+}
+
 .clear-btn{
     height: 40px;
     width: 80px;

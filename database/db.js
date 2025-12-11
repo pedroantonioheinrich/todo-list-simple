@@ -13,6 +13,11 @@ class Task {
         return this.tasks;
     }
 
+    static setLocalStorage(){
+        return localStorage.setItem("tasks", JSON.stringify(this.tasks))
+    }
+
+
     static getTaskById(id) {
         return this.tasks.find(e => e.id === id) || "Task ID not found!!";
     }
