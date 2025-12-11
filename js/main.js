@@ -7,7 +7,7 @@ const pendingTasks = document.getElementById('element')
 const clearAll = document.querySelector('#clear-ul')
 const input = document.querySelector('#input')
 
-let count = 0
+
 pendingTasks.textContent = Task.taskCount()
 
 function generateId(){
@@ -31,6 +31,7 @@ input.addEventListener('keydown', (evt)=>{
             input.value = "";                
             pendingTasks.textContent = Task.taskCount();
             
+            
         }
         input.value = ""
         pendingTasks.textContent = Task.taskCount()  
@@ -44,27 +45,11 @@ plusBtn.addEventListener('click', () => {
         return input.style.border = "1px solid red"
     }else{
         input.style.border = "1px solid green"
-        const li = document.createElement('li')
-        li.textContent = input.value
-        li.className = 'li-added'
-    
-        const removeBtn = document.createElement('button')
-        removeBtn.textContent = 'x'
-        removeBtn.className = 'delete-li'
-    
-        removeBtn.addEventListener('click', ()=>{
-            Task.removeTaskById()
-            ul.removeChild(li)
-            input.value = ""
-            pendingTasks.textContent = Task.taskCount()
-        })
-    
-        li.appendChild(removeBtn)
-        ul.appendChild(li)
-        input.value = ""
+                input.value = ""
         pendingTasks.textContent = Task.taskCount()
 
     }
+    pendingTasks.textContent = Task.taskCount()
 })
 
 clearAll.addEventListener('click', ()=>{
@@ -73,3 +58,23 @@ clearAll.addEventListener('click', ()=>{
     pendingTasks.textContent = Task.taskCount()
 })
 
+function createUlElement(){
+    const li = document.createElement('li')
+    li.textContent = input.value
+    li.className = 'li-added'
+    
+    const removeBtn = document.createElement('button')
+    removeBtn.textContent = 'x'
+    removeBtn.className = 'delete-li'
+    
+    removeBtn.addEventListener('click', ()=>{
+        Task.removeTaskById()
+        ul.removeChild(li)
+        input.value = ""
+        pendingTasks.textContent = Task.taskCount()
+    })
+    
+    li.appendChild(removeBtn)
+    ul.appendChild(li)
+
+}
