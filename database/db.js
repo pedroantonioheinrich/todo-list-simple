@@ -6,7 +6,7 @@ class Task {
     }
 
     static taskCount() {
-        return this.tasks.length;
+        return this.tasks.length
     }
 
     static seeAllTasks() {
